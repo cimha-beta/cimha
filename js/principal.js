@@ -74,7 +74,7 @@ function initCardInteractions() {
                 if (title.includes('Reportes')) {
                     navegarConTransicion('reportes.html');
                 } else if (title.includes('Acerca')) {
-                    navegarConTransicion('acerca.html');
+                    navegarConTransicion('acerca-de-nosotros.html');
                 } else if (title.includes('Fuentes')) {
                     navegarConTransicion('fuentes.html');
                 }
