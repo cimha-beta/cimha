@@ -65,7 +65,48 @@ function initInteracciones() {
 }
 
 // ============================================ //
-// 4. FUNCIÓN DE REDIRECCIÓN CON TRANSICIÓN    //
+// 4. CARRUSEL AUTOMÁTICO DE VALORES                //
+// ============================================ //
+
+function initValuesCarousel() {
+    const track = document.getElementById('values-track');
+    const dotsContainer = document.getElementById('values-dots');
+    const slides = track.children;
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    // Crear los puntos indicadores
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        Array.from(dotsContainer.children).forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        goToSlide(currentIndex);
+    }
+
+    // Avanza automáticamente cada 4 segundos
+    setInterval(nextSlide, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initValuesCarousel();
+});
+
+// ============================================ //
+// 5. FUNCIÓN DE REDIRECCIÓN CON TRANSICIÓN    //
 // ============================================ //
 
 function navegarConTransicion(destino) {
