@@ -86,10 +86,6 @@ header {
         font-size: 18px;
     }
     
-    .grid.grid-cols-2 {
-        gap: 8px;
-    }
-    
     section .p-6 {
         padding: 16px;
     }
@@ -99,7 +95,8 @@ header {
     }
     
     .value-card {
-        padding: 12px;
+        padding: 24px 16px;
+        min-height: 180px;
     }
     
     .value-card .w-16.h-16 {
@@ -230,4 +227,62 @@ main > section:last-of-type .w-16.h-16 {
 
 main > section:last-of-type .w-16.h-16 svg {
     color: white;
+}
+
+/* ============================================ */
+/* 6. RESPONSIVE - AJUSTES PARA MÓVIL          */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    header {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    
+    header h1 {
+        font-size: 18px;
+    }
+    
+    section .p-6 {
+        padding: 16px;
+    }
+    
+    section h2 {
+        font-size: 20px;
+    }
+    
+    .value-card {
+        padding: 24px 16px;
+        min-height: 180px;
+    }
+    
+    .value-card .w-16.h-16 {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .value-card svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .value-card h4 {
+        font-size: 14px;
+    }
+    
+    .value-card p {
+        font-size: 11px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
 }
