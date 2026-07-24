@@ -223,7 +223,7 @@ submitBtn.addEventListener('click', async (e) => {
     };
 
     try {
-        const response = await fetch('http://localhost:5678/webhook-test/correo-reportes', {
+        const response = await fetch('http://localhost:5678/webhook/correo-reportes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
