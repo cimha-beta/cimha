@@ -9,6 +9,7 @@
 /* ============================================ */
 
 body {
+    zoom: 0.85; /* ← Esta línea controla la escala general */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
