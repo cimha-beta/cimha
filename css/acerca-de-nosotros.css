@@ -9,12 +9,12 @@
 /* ============================================ */
 
 body {
-    zoom; 0.85;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f9fb;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-bottom: 40px;
+    zoom: 0.85;
 }
 
 /* ============================================ */
