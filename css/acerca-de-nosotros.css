@@ -131,8 +131,15 @@ main > section:first-of-type {
 }
 
 .value-card .w-16.h-16 {
+    width: 56px;
+    height: 56px;
     background: none;
     box-shadow: none;
+} 
+
+.value-card img {
+    width: 40px;
+    height: 40px;
 }
 
 .value-card:nth-child(2) .w-16.h-16,
