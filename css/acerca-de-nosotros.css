@@ -8,17 +8,31 @@
 /* 1. ESTILOS GENERALES                         */
 /* ============================================ */
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f9fb;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-bottom: 40px;
-    zoom: 0.85;
+    zoom: 0.85; /* Reducción de escala general - igual que reportes.css */
 }
 
 /* ============================================ */
-/* 2. TRANSICIÓN DE ENTRADA                     */
+/* 2. ICONOS DE MATERIAL                        */
+/* ============================================ */
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-family: 'Material Symbols Outlined', sans-serif;
+}
+
+/* ============================================ */
+/* 3. TRANSICIÓN DE ENTRADA                     */
 /* ============================================ */
 
 body {
@@ -34,7 +48,7 @@ body.loaded {
 }
 
 /* ============================================ */
-/* 3. TRANSICIÓN DE SALIDA                      */
+/* 4. TRANSICIÓN DE SALIDA                      */
 /* ============================================ */
 
 body.fade-out {
@@ -44,119 +58,42 @@ body.fade-out {
 }
 
 /* ============================================ */
-/* 4. HEADER - FONDO CON DESENFOQUE             */
+/* 5. HEADER - Acento sutil                     */
 /* ============================================ */
 
 header {
     background-color: rgba(247, 249, 251, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-}
-
-/* ============================================ */
-/* 5. TARJETAS DE VALORES - EFECTO HOVER       */
-/* ============================================ */
-
-.value-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.value-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* ============================================ */
-/* 6. RESPONSIVE - AJUSTES PARA MÓVIL          */
-/* ============================================ */
-
-@media (max-width: 500px) {
-    main {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    
-    header {
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 16px;
-        padding-bottom: 16px;
-    }
-    
-    header h1 {
-        font-size: 20px;
-    }
-    
-    section .p-6 {
-        padding: 16px;
-    }
-    
-    section h2 {
-        font-size: 18px;
-    }
-    
-    .value-card {
-        padding: 24px 16px;
-        min-height: 180px;
-    }
-    
-    .value-card .w-16.h-16 {
-        width: 48px;
-        height: 48px;
-    }
-    
-    .value-card svg {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .value-card h4 {
-        font-size: 16px;
-    }
-    
-    .value-card p {
-        font-size: 12px;
-    }
-    
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-/* ============================================ */
-/* 7. RESPONSIVE - TABLET                       */
-/* ============================================ */
-
-@media (min-width: 481px) and (max-width: 768px) {
-    main {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-}
-
-/* ============================================ */
-/* 8. RESPONSIVE - ESCRITORIO                   */
-/* ============================================ */
-
-@media (min-width: 769px) {
-    main {
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* ============================================ */
-/* 9. HEADER - Acento sutil                     */
-/* ============================================ */
-
-header {
     border-bottom: 1px solid rgba(0, 102, 204, 0.08);
 }
 
+header h1 {
+    font-size: 20px; /* igual que reportes.css */
+}
+
 /* ============================================ */
-/* 10. HERO - Acento lateral de color           */
+/* 6. TAMAÑOS DE TEXTO GENERALES (base, no responsive) */
+/* ============================================ */
+
+main > section:first-of-type h2 {
+    font-size: 18px; /* "¿Quiénes somos?" - igual al hero-banner h2 de reportes */
+}
+
+main > section:first-of-type p {
+    font-size: 14px; /* párrafos de "¿Quiénes somos?" */
+}
+
+main section h3 {
+    font-size: 16px; /* "Nuestros valores", "Nuestro equipo", "Nuestro compromiso" */
+}
+
+main > section:last-of-type p {
+    font-size: 12px; /* texto de "Nuestro compromiso" */
+}
+
+/* ============================================ */
+/* 7. HERO - Acento lateral de color             */
 /* ============================================ */
 
 main > section:first-of-type {
@@ -164,12 +101,18 @@ main > section:first-of-type {
 }
 
 /* ============================================ */
-/* 11. VALUE CARDS - Icono con degradado + acento superior */
+/* 8. TARJETAS DE VALORES - EFECTO HOVER       */
 /* ============================================ */
 
 .value-card {
     position: relative;
     overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.value-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .value-card::before {
@@ -198,8 +141,16 @@ main > section:first-of-type {
     box-shadow: inset 0 0 0 1px rgba(5, 150, 105, 0.1);
 }
 
+.value-card h4 {
+    font-size: 16px;
+}
+
+.value-card p {
+    font-size: 12px;
+}
+
 /* ============================================ */
-/* 12. AVATARES DE EQUIPO - Iniciales con degradado */
+/* 9. AVATARES DE EQUIPO - Iniciales con degradado */
 /* ============================================ */
 
 .avatar-gradient-1 {
@@ -213,7 +164,7 @@ main > section:first-of-type {
 }
 
 /* ============================================ */
-/* 13. COMPROMISO - Acento diagonal              */
+/* 10. COMPROMISO - Acento diagonal              */
 /* ============================================ */
 
 main > section:last-of-type {
@@ -231,7 +182,38 @@ main > section:last-of-type .w-16.h-16 svg {
 }
 
 /* ============================================ */
-/* 6. RESPONSIVE - AJUSTES PARA MÓVIL          */
+/* 11. CARRUSEL DE VALORES                       */
+/* ============================================ */
+
+#values-carousel-container {
+    border-radius: 1rem;
+}
+
+#values-track {
+    width: 100%;
+}
+
+.value-card {
+    min-height: 200px;
+    justify-content: center;
+}
+
+#values-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: #cbd5e1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#values-dots .dot.active {
+    width: 24px;
+    background-color: #0066cc;
+}
+
+/* ============================================ */
+/* 12. RESPONSIVE - AJUSTES PARA MÓVIL          */
 /* ============================================ */
 
 @media (max-width: 480px) {
@@ -247,16 +229,8 @@ main > section:last-of-type .w-16.h-16 svg {
         padding-bottom: 16px;
     }
     
-    header h1 {
-        font-size: 18px;
-    }
-    
     section .p-6 {
         padding: 16px;
-    }
-    
-    section h2 {
-        font-size: 20px;
     }
     
     .value-card {
@@ -274,16 +248,31 @@ main > section:last-of-type .w-16.h-16 svg {
         height: 24px;
     }
     
-    .value-card h4 {
-        font-size: 14px;
-    }
-    
-    .value-card p {
-        font-size: 11px;
-    }
-    
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+    }
+}
+
+/* ============================================ */
+/* 13. RESPONSIVE - TABLET                       */
+/* ============================================ */
+
+@media (min-width: 481px) and (max-width: 768px) {
+    main {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* ============================================ */
+/* 14. RESPONSIVE - ESCRITORIO                   */
+/* ============================================ */
+
+@media (min-width: 769px) {
+    main {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
