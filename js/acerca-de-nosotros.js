@@ -65,37 +65,64 @@ function initInteracciones() {
 }
 
 // ============================================ //
-// 4. CARRUSEL AUTOMÁTICO DE VALORES                //
+// CARRUSEL AUTOMÁTICO DE VALORES (LOOP INFINITO) //
 // ============================================ //
 
 function initValuesCarousel() {
     const track = document.getElementById('values-track');
     const dotsContainer = document.getElementById('values-dots');
     const slides = track.children;
-    const totalSlides = slides.length;
+    const realSlidesCount = slides.length - 1; // sin contar el clon
     let currentIndex = 0;
+    let isTransitioning = false;
 
-    // Crear los puntos indicadores
-    for (let i = 0; i < totalSlides; i++) {
+    // Crear los puntos indicadores (solo para las cards reales, no el clon)
+    for (let i = 0; i < realSlidesCount; i++) {
         const dot = document.createElement('div');
         dot.className = `dot ${i === 0 ? 'active' : ''}`;
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     }
 
-    function goToSlide(index) {
-        currentIndex = index;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
+    function updateDots(index) {
         Array.from(dotsContainer.children).forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
+            dot.classList.toggle('active', i === index);
         });
     }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        goToSlide(currentIndex);
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex = index;
+        track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots(currentIndex);
     }
+
+    function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Si llegamos al clon (última posición), actualizamos el punto al primero
+        if (currentIndex === realSlidesCount) {
+            updateDots(0);
+        } else {
+            updateDots(currentIndex);
+        }
+    }
+
+    // Cuando termina la transición, si estamos en el clon, saltamos sin animar al real
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (currentIndex === realSlidesCount) {
+            track.style.transition = 'none';
+            currentIndex = 0;
+            track.style.transform = `translateX(0%)`;
+        }
+    });
 
     // Avanza automáticamente cada 4 segundos
     setInterval(nextSlide, 4000);
