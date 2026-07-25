@@ -113,6 +113,19 @@ main > section:first-of-type {
 .value-card:hover {
     transform: scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}/* ============================================ */
+/* 8. TARJETAS DE VALORES - EFECTO HOVER       */
+/* ============================================ */
+
+.value-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.value-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .value-card::before {
@@ -131,15 +144,8 @@ main > section:first-of-type {
 }
 
 .value-card .w-16.h-16 {
-    width: 56px;
-    height: 56px;
     background: none;
     box-shadow: none;
-} 
-
-.value-card img {
-    width: 40px;
-    height: 40px;
 }
 
 .value-card:nth-child(2) .w-16.h-16,
@@ -243,16 +249,6 @@ main > section:last-of-type .w-16.h-16 svg {
     .value-card {
         padding: 24px 16px;
         min-height: 180px;
-    }
-    
-    .value-card .w-16.h-16 {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .value-card img {
-        width: 50px;
-        height: 50px;
     }
     
     .team-grid {
