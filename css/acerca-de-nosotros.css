@@ -70,7 +70,7 @@ header {
 /* 6. RESPONSIVE - AJUSTES PARA MÓVIL          */
 /* ============================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     main {
         padding-left: 16px;
         padding-right: 16px;
