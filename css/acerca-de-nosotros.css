@@ -84,7 +84,7 @@ header {
     }
     
     header h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     section .p-6 {
@@ -92,7 +92,7 @@ header {
     }
     
     section h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .value-card {
@@ -111,11 +111,11 @@ header {
     }
     
     .value-card h4 {
-        font-size: 15px;
+        font-size: 16px;
     }
     
     .value-card p {
-        font-size: 13px;
+        font-size: 12px;
     }
     
     .team-grid {
