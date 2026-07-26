@@ -15,7 +15,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    padding-bottom: 96px;
+    padding-bottom: 24px;
+    zoom: 0.85;
 }
 
 /* ============================================ */
@@ -125,27 +126,7 @@ section:hover {
         width: 100%;
         justify-content: center;
     }
-    
-    nav {
-        padding-left: 12px;
-        padding-right: 12px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
-    
-    nav button {
-        padding: 8px;
-    }
-    
-    nav span.material-symbols-outlined {
-        font-size: 24px;
-    }
-    
-    nav span.text-[10px] {
-        font-size: 9px;
-    }
 }
-
 /* ============================================ */
 /* 9. RESPONSIVE - TABLET                       */
 /* ============================================ */
@@ -167,4 +148,63 @@ section:hover {
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+/* ============================================ */
+/* 11. MAPEO DE COLORES Y TOKENS (clases no reales de Tailwind) */
+/* ============================================ */
+
+.bg-surface {
+    background-color: #f7f9fb;
+}
+
+.bg-surface-container-lowest {
+    background-color: #ffffff;
+}
+
+.border-outline-variant {
+    border-color: #e2e5e9;
+}
+
+.text-on-surface {
+    color: #131b2e;
+}
+
+.text-on-surface-variant {
+    color: #5a6472;
+}
+
+.text-primary-container {
+    color: #131b2e;
+}
+
+.bg-primary {
+    background-color: #131b2e;
+}
+
+.text-on-primary {
+    color: #ffffff;
+}
+
+.text-primary {
+    color: #0066cc;
+}
+
+.text-headline-md {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.text-body-lg {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.text-body-sm {
+    font-size: 13px;
+}
+
+.px-container-margin-mobile {
+    padding-left: 24px;
+    padding-right: 24px;
 }
