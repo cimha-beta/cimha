@@ -135,13 +135,13 @@ main > section:first-of-type {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0066cc, #4d94ff);
+    background: #0066cc;
 }
 
 .value-card:nth-child(2)::before,
 .value-card:nth-child(4)::before,
 .value-card:nth-child(5)::before {
-    background: linear-gradient(90deg, #059669, #34d399);
+    background: #059669;
 }
 
 .value-card .w-16.h-16 {
