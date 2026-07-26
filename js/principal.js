@@ -76,7 +76,7 @@ function initCardInteractions() {
                 } else if (title.includes('Acerca')) {
                     navegarConTransicion('acerca-de-nosotros.html');
                 } else if (title.includes('Fuentes')) {
-                    navegarConTransicion('fuentes.html');
+                    navegarConTransicion('fuentes-de-datos.html');
                 }
             }
         });
