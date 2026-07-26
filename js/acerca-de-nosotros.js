@@ -124,8 +124,8 @@ function initValuesCarousel() {
         }
     });
 
-    // Avanza automáticamente cada 4 segundos
-    setInterval(nextSlide, 4000);
+    // Avanza automáticamente cada 5 segundos
+    setInterval(nextSlide, 5000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
