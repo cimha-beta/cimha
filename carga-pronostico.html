@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Generando Pronóstico</title>
+    
+    <!-- ✅ Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- ✅ Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- ✅ CSS Personalizado -->
+    <link rel="stylesheet" href="css/carga-pronostico.css" />
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- STATUS BAR (VACÍO)                           -->
+    <!-- ============================================ -->
+    <header class="flex justify-between items-center px-8 py-4 w-full"></header>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT                                -->
+    <!-- ============================================ -->
+    <main class="flex-grow flex flex-col items-center justify-center px-10 text-center">
+        
+        <!-- Central Processing Visual -->
+        <div class="relative flex items-center justify-center mb-8">
+            <div class="w-[240px] h-[240px] flex items-center justify-center relative">
+                
+                <!-- Background Decorative Path -->
+                <div class="absolute w-[220px] h-[220px] rounded-full border border-blue-50 border-2"></div>
+                
+                <!-- Central Circle with Icon -->
+                <div class="w-[180px] h-[180px] bg-white rounded-full central-circle-shadow flex items-center justify-center z-10">
+                    <div class="flex flex-col items-center">
+                        <div class="relative w-24 h-24">
+                            <img 
+                                alt="Clima" 
+                                class="w-full h-full object-contain" 
+                                src="assets/icon-clima-central.png"
+                            />
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Titles and Description -->
+        <h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-stack-md">Generando Pronóstico</h1>
+        <p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed mb-6 max-w-[280px]">
+            Este proceso puede tardar unos minutos.<br />
+        </p>
+        
+        <!-- Multi-phase Loading Loop -->
+        <div class="w-full max-w-[280px] mb-10 flex flex-col items-center">
+            
+            <!-- Status Text -->
+            <p class="text-sm font-medium text-on-surface-variant mb-3 transition-opacity duration-300" id="status-text">
+                Iniciando proceso...
+            </p>
+            
+            <!-- Segmented Loading Bar Container -->
+            <div class="w-full border-2 border-on-surface flex p-1 space-x-1 h-5 rounded-xl" id="loading-container">
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+                <div class="flex-1 segment-fade-in bg-transparent"></div>
+            </div>
+        </div>
+        
+        <!-- Cancel Button -->
+        <button class="w-full max-w-[280px] py-4 bg-error rounded-xl flex items-center justify-center space-x-2 text-on-error font-bold active:bg-error/90 transition-colors" id="cancel-button">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span>Cancelar</span>
+        </button>
+        
+    </main>
+
+    <!-- ✅ JavaScript -->
+    <script src="js/carga-pronostico.js"></script>
+</body>
+</html>
