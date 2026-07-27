@@ -73,7 +73,7 @@ function initEntranceTransition() {
  * Redirige a la pantalla de consulta
  */
 function irAConsulta() {
-    window.location.href = 'consulta-geografica.html';
+    window.location.href = 'carga-pronostico.html';
 }
 
 /**
