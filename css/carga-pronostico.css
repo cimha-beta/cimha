@@ -1,0 +1,141 @@
+/* ============================================ */
+/* CARGA-PRONOSTICO.CSS - ESTILOS           */
+/* Basado en Hydrologic Precision System        */
+/* DESIGN.md v1.0                               */
+/* ============================================ */
+
+/* ============================================ */
+/* 1. ESTILOS GENERALES                         */
+/* ============================================ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f7f9fb;
+    color: #191c1e;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================ */
+/* 2. ANIMACIÓN DE ÓRBITA                      */
+/* ============================================ */
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating-trail-container {
+    animation: orbit 3s linear infinite;
+}
+
+/* ============================================ */
+/* 3. SOMBRA DEL CÍRCULO CENTRAL               */
+/* ============================================ */
+
+.central-circle-shadow {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================ */
+/* 4. TRANSICIÓN DE SEGMENTOS                   */
+/* ============================================ */
+
+.segment-fade-in {
+    transition: background-color 0.4s ease;
+    border-radius: 6px;
+}
+
+/* ============================================ */
+/* 5. TRANSICIÓN DE ENTRADA                     */
+/* ============================================ */
+
+body {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================ */
+/* 6. TRANSICIÓN DE SALIDA                      */
+/* ============================================ */
+
+body.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+/* ============================================ */
+/* 7. RESPONSIVE - AJUSTES PARA MÓVIL          */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    main {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .w-[240px].h-[240px] {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .w-[220px].h-[220px] {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .w-[180px].h-[180px] {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .w-24.h-24 {
+        width: 72px;
+        height: 72px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    p.text-body-lg {
+        font-size: 14px;
+    }
+    
+    .max-w-[280px] {
+        max-width: 100%;
+    }
+    
+    #loading-container {
+        height: 16px;
+        padding: 3px;
+        gap: 3px;
+    }
+}
+
+/* ============================================ */
+/* 8. RESPONSIVE - ESCRITORIO                   */
+/* ============================================ */
+
+@media (min-width: 769px) {
+    main {
+        max-width: 430px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
