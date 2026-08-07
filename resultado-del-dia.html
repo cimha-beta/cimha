@@ -38,39 +38,36 @@
             <!-- ============================================ -->
             <!-- HEADER SECTION                              -->
             <!-- ============================================ -->
-            <header class="flex flex-col space-y-3">
-                <!-- Date (headline) -->
+            <header class="flex flex-col space-y-2">
+                <!-- Location (headline) -->
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shadow-sm flex-shrink-0">
-                        <svg class="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                    </div>
-                    <h1 class="text-[#1e293b] font-bold text-lg leading-tight">Domingo 14 de Junio 2026</h1>
-                </div>
-
-                <!-- Location + Time (grouped, same row) -->
-                <div class="flex items-center justify-between pl-1">
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-blue-600 drop-shadow-md flex-shrink-0" fill="currentColor"
-                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path clip-rule="evenodd"
                                 d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                                 fill-rule="evenodd"></path>
                         </svg>
-                        <span class="text-slate-500 font-medium text-base">Lorica, Cordoba</span>
                     </div>
-                    <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center space-x-2 border border-blue-100 flex-shrink-0">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                        <span class="text-blue-900 font-semibold text-sm">05:35 p.m</span>
-                    </div>
+                    <h1 class="text-[#1e293b] font-bold text-lg leading-tight">Lorica, Cordoba</h1>
+                </div>
+
+                <!-- Date + Time (secondary line) -->
+                <div class="flex items-center space-x-2 pl-1">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <span class="text-slate-500 text-sm">Domingo 14 de Junio 2026</span>
+                    <span class="text-slate-300 text-sm">&middot;</span>
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <span class="text-slate-500 text-sm">05:35 p.m</span>
                 </div>
             </header>
 
@@ -121,9 +118,9 @@
                 <div class="bg-white rounded-2xl p-4 mt-6 flex justify-between items-center shadow-sm relative z-20">
                     <!-- Max Temp -->
                     <div class="flex flex-col items-center flex-1">
-                        <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-1.5">
+                        <div class="w-[70px] h-[70px] rounded-full bg-red-50 flex items-center justify-center mb-1.5 overflow-visible">
                             <img src="assets/icon-temp-max.png" alt="Temperatura Máxima"
-                                style="width: 34px; height: 34px; object-fit: contain;" />
+                                style="width: 50px; height: 50px; object-fit: contain;" />
                         </div>
                         <span class="text-xs text-slate-500 font-medium mb-1 text-center">Temperatura Max</span>
                         <span class="text-xl font-bold text-slate-800">31°</span>
@@ -132,9 +129,9 @@
                     <div class="w-px h-12 bg-slate-100"></div>
                     <!-- Min Temp -->
                     <div class="flex flex-col items-center flex-1">
-                        <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-1.5">
+                        <div class="w-[70px] h-[70px] rounded-full bg-blue-50 flex items-center justify-center mb-1.5 overflow-visible">
                             <img src="assets/icon-temp-min.png" alt="Temperatura Mínima"
-                                style="width: 34px; height: 34px; object-fit: contain;" />
+                                style="width: 50px; height: 50px; object-fit: contain;" />
                         </div>
                         <span
                             class="text-xs text-slate-500 font-medium mb-1 text-center leading-tight">Temperatura<br />Min</span>
@@ -144,9 +141,9 @@
                     <div class="w-px h-12 bg-slate-100"></div>
                     <!-- Feels Like -->
                     <div class="flex flex-col items-center flex-1">
-                        <div class="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center mb-1.5 overflow-visible">
+                        <div class="w-[70px] h-[70px] rounded-full bg-indigo-50 flex items-center justify-center mb-1.5 overflow-visible">
                             <img src="assets/icon-sensacion-termica.png" alt="Sensación Térmica"
-                                style="width: 40px; height: 40px; object-fit: contain;" />
+                                style="width: 50px; height: 50px; object-fit: contain;" />
                         </div>
                         <span class="text-xs text-slate-500 font-medium mb-1 text-center leading-tight">Sensación
                             Térmica</span>
@@ -158,26 +155,26 @@
             <!-- ============================================ -->
             <!-- DETAILED DATA ROW                           -->
             <!-- ============================================ -->
-            <section class="flex justify-between items-center px-4 py-2">
+            <section class="bg-white rounded-2xl border border-slate-100 p-2 shadow-sm">
                 <!-- Rain Probability -->
-                <div class="flex flex-col items-center flex-1">
-                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-3 overflow-visible">
+                <div class="flex items-center space-x-4 p-3">
+                    <div class="w-[70px] h-[70px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 overflow-visible">
                         <img src="assets/icon-probailidad-lluvia.png" alt="Probabilidad de Lluvia"
-                            style="width: 54px; height: 54px; object-fit: contain;" />
+                            style="width: 50px; height: 50px; object-fit: contain;" />
                     </div>
-                    <span class="text-sm text-slate-700 font-medium mb-1">Probabilidad de Lluvia</span>
-                    <span class="text-2xl font-bold text-blue-600">20%</span>
+                    <span class="text-sm text-slate-700 font-medium flex-1">Probabilidad de Lluvia</span>
+                    <span class="text-xl font-bold text-blue-600">20%</span>
                 </div>
                 <!-- Divider -->
-                <div class="w-px h-16 bg-slate-100"></div>
+                <div class="h-px bg-slate-100 mx-3"></div>
                 <!-- Wind -->
-                <div class="flex flex-col items-center flex-1">
-                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-3 overflow-visible">
+                <div class="flex items-center space-x-4 p-3">
+                    <div class="w-[70px] h-[70px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 overflow-visible">
                         <img src="assets/icon-viento.png" alt="Viento"
-                            style="width: 44px; height: 44px; object-fit: contain;" />
+                            style="width: 50px; height: 50px; object-fit: contain;" />
                     </div>
-                    <span class="text-sm text-slate-700 font-medium mb-1">Viento</span>
-                    <span class="text-2xl font-bold text-blue-600">5.5 Km/h</span>
+                    <span class="text-sm text-slate-700 font-medium flex-1">Viento</span>
+                    <span class="text-xl font-bold text-blue-600">5.5 Km/h</span>
                 </div>
             </section>
 
@@ -188,10 +185,10 @@
                 class="alert-gradient rounded-2xl p-4 flex items-center justify-between border border-red-50 mt-4 shadow-sm cursor-pointer hover:bg-red-50 transition-colors"
                 id="alert-banner">
                 <div class="flex items-center space-x-4">
-                    <div class="w-14 h-14 flex items-center justify-center relative overflow-visible flex-shrink-0">
+                    <div class="w-[70px] h-[70px] flex items-center justify-center relative overflow-visible flex-shrink-0">
                         <div class="absolute inset-0 bg-red-100 rounded-full opacity-50 blur-sm"></div>
                         <img src="assets/icon-temperatura-alta.png" alt="Temperaturas Altas"
-                            style="width: 36px; height: 36px; object-fit: contain; position: relative; z-index: 10;" />
+                            style="width: 50px; height: 50px; object-fit: contain; position: relative; z-index: 10;" />
                     </div>
                     <div>
                         <h3 class="text-slate-800 font-bold text-sm">Temperaturas Altas</h3>
