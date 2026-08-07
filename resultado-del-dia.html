@@ -42,7 +42,7 @@
                                 fill-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <h1 class="text-[#1e293b] font-bold text-lg leading-tight">Lorica, Cordoba</h1>
+                    <h1 id="ubicacion" class="text-[#1e293b] font-bold text-lg leading-tight">Lorica, Cordoba</h1>
                 </div>
 
                 <div class="flex items-center space-x-2 pl-1">
@@ -51,14 +51,14 @@
                         <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
-                    <span class="text-slate-500 text-sm">Domingo 14 de Junio 2026</span>
+                    <span id="fecha" class="text-slate-500 text-sm">Domingo 14 de Junio 2026</span>
                     <span class="text-slate-300 text-sm">&middot;</span>
                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
-                    <span class="text-slate-500 text-sm">05:35 p.m</span>
+                    <span id="hora" class="text-slate-500 text-sm">05:35 p.m</span>
                 </div>
             </header>
 
@@ -68,12 +68,12 @@
                     <button
                         class="toggle-btn toggle-btn-inactive px-8 py-2 rounded-full font-semibold text-sm transition-colors duration-200 flex-shrink-0"
                         id="btn-rio" type="button">
-                        Río
+                        Clima
                     </button>
                     <button
                         class="toggle-btn toggle-btn-active px-8 py-2 rounded-full font-semibold text-sm transition-colors duration-200 flex-shrink-0"
                         id="btn-clima" type="button">
-                        Clima
+                        Rio
                     </button>
                 </div>
             </section>
@@ -89,10 +89,10 @@
 
                 <div class="relative z-10 flex flex-col justify-end text-white pb-6 border-b border-white/20">
                     <div class="flex items-start">
-                        <span class="text-7xl font-bold tracking-tighter">31</span>
+                        <span id="temp-actual" class="text-7xl font-bold tracking-tighter">31</span>
                         <span class="text-4xl font-semibold mt-2">°</span>
                     </div>
-                    <p class="text-lg font-medium mt-1">Parcialmente Soleado</p>
+                    <p id="estado-cielo" class="text-lg font-medium mt-1">Parcialmente Soleado</p>
                 </div>
 
                 <div class="bg-white rounded-2xl p-4 flex justify-between items-center shadow-sm relative z-20">
@@ -103,7 +103,7 @@
                                 style="width: 40px; height: 40px; object-fit: contain;" />
                         </div>
                         <span class="text-xs text-slate-500 font-medium mb-1 text-center">Temperatura Max</span>
-                        <span class="text-xl font-bold text-slate-800">31°</span>
+                        <span id="temp-max" class="text-xl font-bold text-slate-800">31°</span>
                     </div>
                     <div class="w-px h-12 bg-slate-100"></div>
                     <div class="flex flex-col items-center flex-1">
@@ -114,7 +114,7 @@
                         </div>
                         <span
                             class="text-xs text-slate-500 font-medium mb-1 text-center leading-tight">Temperatura<br />Min</span>
-                        <span class="text-xl font-bold text-slate-800">21°</span>
+                        <span id="temp-min" class="text-xl font-bold text-slate-800">21°</span>
                     </div>
                     <div class="w-px h-12 bg-slate-100"></div>
                     <div class="flex flex-col items-center flex-1">
@@ -125,7 +125,7 @@
                         </div>
                         <span class="text-xs text-slate-500 font-medium mb-1 text-center leading-tight">Sensación
                             Térmica</span>
-                        <span class="text-xl font-bold text-slate-800">35°</span>
+                        <span id="sensacion-termica" class="text-xl font-bold text-slate-800">35°</span>
                     </div>
                 </div>
             </section>
@@ -139,7 +139,7 @@
                             style="width: 36px; height: 36px; object-fit: contain;" />
                     </div>
                     <span class="text-sm text-slate-700 font-medium flex-1">Probabilidad de Lluvia</span>
-                    <span class="text-lg font-bold text-blue-600">20%</span>
+                    <span id="prob-lluvia" class="text-lg font-bold text-blue-600">20%</span>
                 </div>
                 <div class="h-px bg-slate-100 mx-3"></div>
                 <div class="flex items-center space-x-3 p-2">
@@ -149,7 +149,7 @@
                             style="width: 36px; height: 36px; object-fit: contain;" />
                     </div>
                     <span class="text-sm text-slate-700 font-medium flex-1">Viento</span>
-                    <span class="text-lg font-bold text-blue-600">5.5 Km/h</span>
+                    <span id="velocidad-viento" class="text-lg font-bold text-blue-600">5.5 Km/h</span>
                 </div>
             </section>
 
@@ -164,8 +164,8 @@
                             style="width: 38px; height: 38px; object-fit: contain;" />
                     </div>
                     <div>
-                        <h3 class="text-slate-800 font-bold text-sm">Temperaturas Altas</h3>
-                        <p class="text-slate-500 text-xs mt-0.5">Alerta Meteorológica Actual</p>
+                        <h3 id="alerta-titulo" class="text-slate-800 font-bold text-sm">Temperaturas Altas</h3>
+                        <p id="alerta-descripcion" class="text-slate-500 text-xs mt-0.5">Alerta Meteorológica Actual</p>
                     </div>
                 </div>
                 <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -183,7 +183,7 @@
                 </div>
                 <div class="flex-1">
                     <h3 class="text-blue-900 font-bold text-xl mb-2">Interpretación</h3>
-                    <p class="text-slate-700 text-sm leading-relaxed">
+                    <p id="interpretacion" class="text-slate-700 text-sm leading-relaxed">
                         El nivel del embalse es normal-bajo y la cantidad de agua que entra es menor que la que sale.
                         Esto hace que el embalse tienda a vaciarse. La cantidad de agua que se libera es alta, lo que
                         impacta de forma significativa el río Sinú a lo largo de la cuenca.
