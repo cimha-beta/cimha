@@ -24,22 +24,14 @@
 </head>
 
 <body>
-    <!-- ============================================ -->
-    <!-- MAIN APP CONTAINER                          -->
-    <!-- ============================================ -->
     <main class="w-full flex flex-col p-6 space-y-6 relative h-full overflow-y-auto">
 
-        <!-- Background subtle gradient -->
         <div class="absolute inset-0 bg-gradient-to-b from-white to-white z-0 pointer-events-none opacity-90"></div>
 
-        <!-- Content wrapper -->
         <div class="relative z-10 space-y-6">
 
-            <!-- ============================================ -->
-            <!-- HEADER SECTION                              -->
-            <!-- ============================================ -->
+            <!-- HEADER SECTION -->
             <header class="flex flex-col space-y-2">
-                <!-- Location (headline) -->
                 <div class="flex items-center space-x-3">
                     <div
                         class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shadow-sm flex-shrink-0">
@@ -53,7 +45,6 @@
                     <h1 class="text-[#1e293b] font-bold text-lg leading-tight">Lorica, Cordoba</h1>
                 </div>
 
-                <!-- Date + Time (secondary line) -->
                 <div class="flex items-center space-x-2 pl-1">
                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -71,47 +62,40 @@
                 </div>
             </header>
 
-            <!-- ============================================ -->
-            <!-- CATEGORY SELECTOR                            -->
-            <!-- ============================================ -->
+            <!-- CATEGORY SELECTOR -->
             <section class="w-full flex justify-center px-6 mt-4">
                 <div class="flex items-center space-x-4 bg-white/50 p-1.5 rounded-full shadow-sm border border-blue-50">
                     <button
-                        class="px-8 py-2 rounded-full bg-white text-blue-600 font-semibold text-sm transition-all shadow-md hover:shadow-lg flex-shrink-0 border border-blue-50"
-                        id="btn-rio">
+                        class="toggle-btn toggle-btn-inactive px-8 py-2 rounded-full font-semibold text-sm transition-colors duration-200 flex-shrink-0"
+                        id="btn-rio" type="button">
                         Río
                     </button>
                     <button
-                        class="px-8 py-2 rounded-full bg-blue-600 text-white font-semibold text-sm transition-all shadow-lg flex-shrink-0"
-                        id="btn-clima">
+                        class="toggle-btn toggle-btn-active px-8 py-2 rounded-full font-semibold text-sm transition-colors duration-200 flex-shrink-0"
+                        id="btn-clima" type="button">
                         Clima
                     </button>
                 </div>
             </section>
 
-            <!-- ============================================ -->
-            <!-- HERO WEATHER CARD                           -->
-            <!-- ============================================ -->
-            <section class="weather-gradient rounded-[32px] p-6 relative overflow-hidden shadow-lg">
+            <!-- HERO WEATHER CARD -->
+            <section
+                class="weather-gradient rounded-[32px] p-6 relative overflow-hidden shadow-lg h-[300px] flex flex-col justify-between">
 
-                <!-- Icono de Clima - Imagen -->
-                <div
-                    class="absolute right-[-10px] top-[-10px] w-[120px] h-[120px] pointer-events-none overflow-visible">
+                <div class="absolute right-4 top-4 w-[90px] h-[90px] pointer-events-none">
                     <img src="assets/icon-clima-card-parcialmente-nublado.png" alt="Clima"
                         style="width: 100%; height: 100%; object-fit: contain;" />
                 </div>
 
-                <!-- Contenido de la card -->
-                <div class="relative z-10 flex flex-col justify-end h-32 mt-4 text-white pb-6 border-b border-white/20">
+                <div class="relative z-10 flex flex-col justify-end text-white pb-6 border-b border-white/20">
                     <div class="flex items-start">
                         <span class="text-7xl font-bold tracking-tighter">31</span>
                         <span class="text-4xl font-semibold mt-2">°</span>
                     </div>
                     <p class="text-lg font-medium mt-1">Parcialmente Soleado</p>
                 </div>
-                <!-- Stats Row -->
-                <div class="bg-white rounded-2xl p-4 mt-6 flex justify-between items-center shadow-sm relative z-20">
-                    <!-- Max Temp -->
+
+                <div class="bg-white rounded-2xl p-4 flex justify-between items-center shadow-sm relative z-20">
                     <div class="flex flex-col items-center flex-1">
                         <div
                             class="w-[50px] h-[50px] rounded-full bg-red-50 flex items-center justify-center mb-1.5 overflow-visible">
@@ -121,9 +105,7 @@
                         <span class="text-xs text-slate-500 font-medium mb-1 text-center">Temperatura Max</span>
                         <span class="text-xl font-bold text-slate-800">31°</span>
                     </div>
-                    <!-- Divider -->
                     <div class="w-px h-12 bg-slate-100"></div>
-                    <!-- Min Temp -->
                     <div class="flex flex-col items-center flex-1">
                         <div
                             class="w-[50px] h-[50px] rounded-full bg-blue-50 flex items-center justify-center mb-1.5 overflow-visible">
@@ -134,9 +116,7 @@
                             class="text-xs text-slate-500 font-medium mb-1 text-center leading-tight">Temperatura<br />Min</span>
                         <span class="text-xl font-bold text-slate-800">21°</span>
                     </div>
-                    <!-- Divider -->
                     <div class="w-px h-12 bg-slate-100"></div>
-                    <!-- Feels Like -->
                     <div class="flex flex-col items-center flex-1">
                         <div
                             class="w-[50px] h-[50px] rounded-full bg-indigo-50 flex items-center justify-center mb-1.5 overflow-visible">
@@ -150,46 +130,38 @@
                 </div>
             </section>
 
-            <!-- ============================================ -->
-            <!-- DETAILED DATA ROW                           -->
-            <!-- ============================================ -->
+            <!-- DETAILED DATA ROW -->
             <section class="bg-white rounded-2xl border border-slate-100 p-2 shadow-sm">
-                <!-- Rain Probability -->
-                <div class="flex items-center space-x-4 p-3">
+                <div class="flex items-center space-x-3 p-2">
                     <div
-                        class="w-[70px] h-[70px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 overflow-visible">
+                        class="w-[46px] h-[46px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="assets/icon-probailidad-lluvia.png" alt="Probabilidad de Lluvia"
-                            style="width: 50px; height: 50px; object-fit: contain;" />
+                            style="width: 26px; height: 26px; object-fit: contain;" />
                     </div>
                     <span class="text-sm text-slate-700 font-medium flex-1">Probabilidad de Lluvia</span>
-                    <span class="text-xl font-bold text-blue-600">20%</span>
+                    <span class="text-lg font-bold text-blue-600">20%</span>
                 </div>
-                <!-- Divider -->
                 <div class="h-px bg-slate-100 mx-3"></div>
-                <!-- Wind -->
-                <div class="flex items-center space-x-4 p-3">
+                <div class="flex items-center space-x-3 p-2">
                     <div
-                        class="w-[70px] h-[70px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 overflow-visible">
+                        class="w-[46px] h-[46px] bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="assets/icon-viento.png" alt="Viento"
-                            style="width: 50px; height: 50px; object-fit: contain;" />
+                            style="width: 26px; height: 26px; object-fit: contain;" />
                     </div>
                     <span class="text-sm text-slate-700 font-medium flex-1">Viento</span>
-                    <span class="text-xl font-bold text-blue-600">5.5 Km/h</span>
+                    <span class="text-lg font-bold text-blue-600">5.5 Km/h</span>
                 </div>
             </section>
 
-            <!-- ============================================ -->
-            <!-- ALERT BANNER                                -->
-            <!-- ============================================ -->
+            <!-- ALERT BANNER -->
             <section
-                class="alert-gradient rounded-2xl p-4 flex items-center justify-between border border-red-50 mt-4 shadow-sm cursor-pointer hover:bg-red-50 transition-colors"
+                class="alert-gradient rounded-2xl p-4 flex items-center justify-between border border-red-100 mt-4 shadow-sm cursor-pointer hover:brightness-95 transition-all" 
                 id="alert-banner">
                 <div class="flex items-center space-x-4">
                     <div
-                        class="w-[70px] h-[70px] flex items-center justify-center relative overflow-visible flex-shrink-0">
-                        <div class="absolute inset-0 bg-red-100 rounded-full opacity-50 blur-sm"></div>
+                        class="w-[64px] h-[64px] bg-red-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                         <img src="assets/icon-temperatura-alta.png" alt="Temperaturas Altas"
-                            style="width: 50px; height: 50px; object-fit: contain; position: relative; z-index: 10;" />
+                            style="width: 38px; height: 38px; object-fit: contain;" />
                     </div>
                     <div>
                         <h3 class="text-slate-800 font-bold text-sm">Temperaturas Altas</h3>
@@ -202,9 +174,7 @@
                 </svg>
             </section>
 
-            <!-- ============================================ -->
-            <!-- INTERPRETATION CARD                         -->
-            <!-- ============================================ -->
+            <!-- INTERPRETATION CARD -->
             <section class="bg-white rounded-2xl p-6 shadow-md mt-4 flex items-start space-x-4">
                 <div class="flex-shrink-0">
                     <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
@@ -224,7 +194,6 @@
         </div>
     </main>
 
-    <!-- ✅ JavaScript -->
     <script src="js/resultado-del-dia.js"></script>
 </body>
 

@@ -51,7 +51,23 @@ body {
 /* ============================================ */
 
 .alert-gradient {
-    background: linear-gradient(90deg, rgb(249, 248, 248) 0%, rgba(254, 242, 242, 0.5) 100%);
+    background: linear-gradient(90deg, #FEE2E2 0%, #FECACA 100%);
+}
+
+/* ============================================ */
+/* 5.1 TOGGLE RÍO / CLIMA                       */
+/* ============================================ */
+
+.toggle-btn-active {
+    background-color: #2563EB;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.25);
+}
+
+.toggle-btn-inactive {
+    background-color: #ffffff;
+    color: #2563EB;
+    border: 1px solid #eff6ff;
 }
 
 /* ============================================ */

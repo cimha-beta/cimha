@@ -38,38 +38,38 @@ function aplicarTransicionEntrada() {
 // ============================================ //
 
 function initInteracciones() {
-    // Botón "Río"
+    // Toggle Río / Clima
     const btnRio = document.getElementById('btn-rio');
+    const btnClima = document.getElementById('btn-clima');
+    const botonesToggle = [btnRio, btnClima];
+
+    function seleccionarCategoria(botonActivo) {
+        botonesToggle.forEach(b => {
+            if (!b) return;
+            if (b === botonActivo) {
+                b.classList.remove('toggle-btn-inactive');
+                b.classList.add('toggle-btn-active');
+            } else {
+                b.classList.remove('toggle-btn-active');
+                b.classList.add('toggle-btn-inactive');
+            }
+        });
+    }
+
     if (btnRio) {
         btnRio.addEventListener('click', function() {
             console.log('🌊 Seleccionado: Río');
-            
-            // Cambiar estilo activo
-            document.querySelectorAll('.category-selector button').forEach(b => {
-                b.classList.remove('bg-blue-600', 'text-white');
-                b.classList.add('bg-white', 'text-blue-600');
-            });
-            this.classList.remove('bg-white', 'text-blue-600');
-            this.classList.add('bg-blue-600', 'text-white');
+            seleccionarCategoria(btnRio);
         });
     }
-    
-    // Botón "Clima"
-    const btnClima = document.getElementById('btn-clima');
+
     if (btnClima) {
         btnClima.addEventListener('click', function() {
             console.log('☀️ Seleccionado: Clima');
-            
-            // Cambiar estilo activo
-            document.querySelectorAll('.category-selector button').forEach(b => {
-                b.classList.remove('bg-blue-600', 'text-white');
-                b.classList.add('bg-white', 'text-blue-600');
-            });
-            this.classList.remove('bg-white', 'text-blue-600');
-            this.classList.add('bg-blue-600', 'text-white');
+            seleccionarCategoria(btnClima);
         });
     }
-    
+
     // Alert Banner - Click para ver detalles
     const alertBanner = document.getElementById('alert-banner');
     if (alertBanner) {
