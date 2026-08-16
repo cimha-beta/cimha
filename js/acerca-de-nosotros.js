@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================ //
 
 function aplicarTransicionEntrada() {
-    const body = document.body;
+    const main = document.querySelector('main');
     
-    setTimeout(() => {
-        body.classList.add('loaded');
-    }, 50);
+    requestAnimationFrame(() => {
+        main.classList.add('loaded');
+    });
 }
 
 // ============================================ //
@@ -45,8 +45,9 @@ function initInteracciones() {
         backButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const body = document.body;
-            body.classList.add('fade-out');
+            const main = document.querySelector('main');
+            main.classList.remove('loaded');
+            main.classList.add('fade-out-back');
             
             setTimeout(() => {
                 window.location.href = 'principal.html';
@@ -137,8 +138,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================ //
 
 function navegarConTransicion(destino) {
-    const body = document.body;
-    body.classList.add('fade-out');
+    const main = document.querySelector('main');
+    main.classList.remove('loaded');
+    main.classList.add('fade-out-back');
     
     setTimeout(() => {
         window.location.href = destino;

@@ -153,13 +153,14 @@ submitBtn.addEventListener('click', () => {
         }));
         
         // Efecto de salida - fade out de toda la pantalla
-        main.classList.add('fade-out');
+        main.classList.remove('loaded');
+        main.classList.add('fade-out-back');
         
         setTimeout(() => {
             console.log('Ubicación seleccionada:', selectedDept, '→', selectedMuni);
             console.log('Datos guardados en localStorage:', localStorage.getItem('selected_location'));
             window.location.href = 'principal.html';
-        }, 500); // coincide con los 0.5s de la transición en el CSS
+        }, 400); // coincide con los 0.4s de la transición en el CSS
     }
 });
 
@@ -176,6 +177,12 @@ document.addEventListener('keydown', (e) => {
 // ============================================ //
 // 9. INICIALIZACIÓN                           //
 // ============================================ //
+
+document.addEventListener('DOMContentLoaded', function() {
+    requestAnimationFrame(() => {
+        main.classList.add('loaded');
+    });
+});
 
 console.log('Consulta Geográfica - Iniciado correctamente');
 console.log('Departamentos disponibles:', Object.keys(data).length);

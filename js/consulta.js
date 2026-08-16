@@ -61,7 +61,7 @@ function initButtonInteractions() {
 
 function initEntranceTransition() {
     requestAnimationFrame(() => {
-        document.body.classList.add('loaded');
+        document.querySelector('main').classList.add('loaded');
     });
 }
 
@@ -73,14 +73,58 @@ function initEntranceTransition() {
  * Redirige a la pantalla de consulta
  */
 function irAConsulta() {
-    window.location.href = 'carga-pronostico.html';
+    document.querySelector('main').classList.remove('loaded');
+    document.querySelector('main').classList.add('fade-out-back');
+    
+    setTimeout(() => {
+        window.location.href = 'carga-pronostico.html';
+    }, 400);
 }
 
 /**
  * Redirige a la pantalla anterior
  */
 function volver() {
-    window.location.href = 'principal.html';
+    document.querySelector('main').classList.remove('loaded');
+    document.querySelector('main').classList.add('fade-out-back');
+    
+    setTimeout(() => {
+        window.location.href = 'principal.html';
+    }, 400);
+}
+
+/**
+ * Combina la ubicación guardada con el tipo de pronóstico elegido
+ * y envía todo junto al webhook
+ */
+function enviarConsulta(tipoPronostico) {
+    // Leer lo que guardó consulta-geografica.html
+    const ubicacion = JSON.parse(localStorage.getItem('selected_location') || '{}');
+
+    const payload = {
+        departamento: ubicacion.dept || null,
+        municipio: ubicacion.muni || null,
+        tipoPronostico: tipoPronostico,
+        fecha: new Date().toISOString()
+    };
+
+    console.log('📤 Enviando payload:', payload);
+
+    fetch('https://webhook.site/96346c8f-6daa-4c51-8f8a-2d9651adea34', {   // ← pega aquí tu URL de webhook.site
+        method: 'POST',
+        headers: { 'Content-Type':  'text/plain' },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('✅ Enviado correctamente:', data);
+        window.location.href = 'carga-pronostico.html';
+    })
+    .catch(error => {
+        console.error('❌ Error al enviar:', error);
+        // Redirige igual aunque falle, para no bloquear al usuario
+        window.location.href = 'carga-pronostico.html';
+    });
 }
 
 // ============================================ //
@@ -106,8 +150,8 @@ function initBackButton() {
     if (backButton) {
         backButton.addEventListener('click', function(e) {
             e.preventDefault();
-            document.body.classList.remove('loaded');
-            document.body.classList.add('fade-out-back');
+            document.querySelector('main').classList.remove('loaded');
+            document.querySelector('main').classList.add('fade-out-back');
             
             setTimeout(() => {
                 window.location.href = 'principal.html';

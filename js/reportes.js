@@ -237,8 +237,8 @@ submitBtn.addEventListener('click', async (e) => {
 
         console.log('✅ Reporte enviado correctamente al webhook');
 
-        // Redirigir a la pantalla de confirmación
-        window.location.href = 'envio-exitoso.html';
+        // Mostrar modal de envío exitoso
+        mostrarModalExito();
 
     } catch (error) {
         console.error('❌ Error al enviar el reporte:', error);
@@ -252,7 +252,78 @@ submitBtn.addEventListener('click', async (e) => {
 });
 
 // ============================================ //
-// 9. BOTÓN VOLVER - Con animación de salida    //
+// 9. MODAL DE ENVÍO EXITOSO                   //
+// ============================================ //
+
+const successModal = document.getElementById('success-modal');
+const btnVolverInicio = document.getElementById('btn-volver-inicio');
+const successVideo = document.getElementById('success-video');
+
+function mostrarModalExito() {
+    // Quitar la clase hidden para mostrar el modal
+    successModal.classList.remove('hidden');
+    
+    // Doble requestAnimationFrame para que el navegador registre el estado inicial
+    // antes de animar (evita que la transición no se vea)
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            successModal.classList.add('modal-active');
+        });
+    });
+    
+    // Reproducir el video desde el inicio
+    if (successVideo) {
+        successVideo.currentTime = 0;
+        successVideo.play();
+    }
+}
+
+function ocultarModalExito() {
+    successModal.classList.remove('modal-active');
+    successModal.classList.add('modal-exit');
+    
+    if (successVideo) {
+        successVideo.pause();
+    }
+    
+    // Esperar a que termine la transición de salida antes de ocultar
+    setTimeout(() => {
+        successModal.classList.add('hidden');
+        successModal.classList.remove('modal-exit');
+    }, 250);
+}
+
+// Al terminar el video, detenerlo para que se quede congelado en el último frame
+if (successVideo) {
+    successVideo.addEventListener('ended', () => {
+        successVideo.pause();
+    });
+}
+
+// Botón "Volver al Inicio" - desvanece pantalla y modal juntos, luego redirige
+if (btnVolverInicio) {
+    btnVolverInicio.addEventListener('click', () => {
+        // Desvanecer la pantalla de reportes
+        document.querySelector('main').classList.remove('loaded');
+        document.querySelector('main').classList.add('fade-out-back');
+        
+        // Desvanecer el modal junto con la pantalla
+        successModal.classList.remove('modal-active');
+        successModal.classList.add('modal-exit');
+        
+        if (successVideo) {
+            successVideo.pause();
+        }
+        
+        // Esperar a que termine la transición de salida (400ms) antes de redirigir
+        setTimeout(() => {
+            window.location.href = 'principal.html';
+        }, 400);
+    });
+}
+
+// ============================================ //
+// 10. BOTÓN VOLVER - Con animación de salida   //
 // ============================================ //
 
 backButton.addEventListener('click', () => {
@@ -265,7 +336,7 @@ backButton.addEventListener('click', () => {
 });
 
 // ============================================ //
-// 10. INICIALIZACIÓN                           //
+// 11. INICIALIZACIÓN                           //
 // ============================================ //
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -278,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log('✅ Reportes - Script cargado correctamente');
 
 // ============================================ //
-// 11. TRANSICIÓN DE ENTRADA                    //
+// 12. TRANSICIÓN DE ENTRADA                    //
 // ============================================ //
 
 function initEntranceTransition() {

@@ -1,16 +1,3 @@
-// ============================================ //
-// CARGA-PRONOSTICO.JS - JAVASCRIPT         //
-// ============================================ //
-
-/**
- * CIMHA - Generando Pronóstico
- * Pantalla de carga con barra de progreso
- */
-
-// ============================================ //
-// 1. DATOS DE ESTADOS                         //
-// ============================================ //
-
 const statusSteps = [
     "Localizando Ubicación",
     "Consultando Clima",
@@ -23,101 +10,63 @@ const statusSteps = [
     "¡Listo!"
 ];
 
-// ============================================ //
-// 2. VARIABLES DE ESTADO                       //
-// ============================================ //
-
 let currentStep = 0;
 let isCancelled = false;
 let timeoutId = null;
-const timePerPhase = 1500; // 1.5 segundos por fase
-
-// ============================================ //
-// 3. REFERENCIAS A ELEMENTOS DOM              //
-// ============================================ //
+const timePerPhase = 1500;
 
 const statusTextElement = document.getElementById('status-text');
-const container = document.getElementById('loading-container');
-const segments = container ? container.querySelectorAll('div') : [];
+const loadingBar = document.getElementById('loading-bar');
 const cancelButton = document.getElementById('cancel-button');
+const cancelModal = document.getElementById('cancel-modal');
+const modalOkBtn = document.getElementById('modal-ok-btn');
+const cancelVideo = document.getElementById('cancel-video');
 
-// ============================================ //
-// 4. ESPERAR A QUE EL DOM ESTÉ LISTO          //
-// ============================================ //
+// Al terminar el video, detenerlo para que se quede congelado en el último frame
+if (cancelVideo) {
+    cancelVideo.addEventListener('ended', () => {
+        cancelVideo.pause();
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Generando Pronóstico - Pantalla cargada');
-    
-    // Aplicar transición de entrada
     aplicarTransicionEntrada();
     
-    // Iniciar el proceso de carga
     setTimeout(() => {
         iniciarCarga();
     }, 500);
     
-    // Inicializar interacciones
     initInteracciones();
 });
 
-// ============================================ //
-// 5. TRANSICIÓN DE ENTRADA                     //
-// ============================================ //
-
 function aplicarTransicionEntrada() {
-    const body = document.body;
+    const main = document.querySelector('main');
     
-    setTimeout(() => {
-        body.classList.add('loaded');
-    }, 50);
+    requestAnimationFrame(() => {
+        main.classList.add('loaded');
+    });
 }
-
-// ============================================ //
-// 6. FUNCIÓN DE CARGA (PROGRESO)              //
-// ============================================ //
 
 function iniciarCarga() {
     if (isCancelled) return;
     
     if (currentStep < statusSteps.length) {
-        // Actualizar texto con animación
         statusTextElement.style.opacity = '0';
         setTimeout(() => {
             statusTextElement.textContent = statusSteps[currentStep];
             statusTextElement.style.opacity = '1';
         }, 300);
         
-        // Llenar segmento
-        if (currentStep < segments.length) {
-            segments[currentStep].classList.remove('bg-transparent');
-            segments[currentStep].classList.add('bg-secondary');
-            
-            // Si es el último segmento, cambiar color a verde (éxito)
-            if (currentStep === segments.length - 1) {
-                segments[currentStep].classList.remove('bg-secondary');
-                segments[currentStep].classList.add('bg-green-500');
-            }
-        }
+        const progress = ((currentStep + 1) / statusSteps.length) * 100;
+        loadingBar.style.width = progress + '%';
         
         currentStep++;
         
-        // Programar siguiente paso
         if (currentStep < statusSteps.length) {
             timeoutId = setTimeout(iniciarCarga, timePerPhase);
-        } else {
-            // Proceso completado
-            console.log('✅ Pronóstico generado exitosamente');
-            // Aquí puedes redirigir automáticamente después de completar
-            // setTimeout(() => {
-            //     navegarConTransicion('resultado-pronostico.html');
-            // }, 1000);
         }
     }
 }
-
-// ============================================ //
-// 7. CANCELAR PROCESO                          //
-// ============================================ //
 
 function cancelarProceso() {
     isCancelled = true;
@@ -125,48 +74,63 @@ function cancelarProceso() {
         clearTimeout(timeoutId);
         timeoutId = null;
     }
+    // Quitar hidden y aplicar animación de entrada con doble requestAnimationFrame
+    cancelModal.classList.remove('hidden');
     
-    statusTextElement.textContent = 'Proceso cancelado';
-    statusTextElement.style.color = '#ba1a1a';
-    
-    // Efecto de salida
-    setTimeout(() => {
-        navegarConTransicion('principal.html');
-    }, 500);
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            cancelModal.classList.add('modal-active');
+        });
+    });
 }
 
-// ============================================ //
-// 8. INTERACCIONES                             //
-// ============================================ //
+function ocultarModalCancelacion() {
+    cancelModal.classList.remove('modal-active');
+    cancelModal.classList.add('modal-exit');
+    
+    setTimeout(() => {
+        cancelModal.classList.add('hidden');
+        cancelModal.classList.remove('modal-exit');
+    }, 250);
+}
 
 function initInteracciones() {
-    // Botón Cancelar
     if (cancelButton) {
         cancelButton.addEventListener('click', function(e) {
             e.preventDefault();
             cancelarProceso();
         });
     }
-    
-    // Tecla ESC para cancelar
+
+    if (modalOkBtn) {
+        modalOkBtn.addEventListener('click', function() {
+            navegarConTransicion('principal.html');
+        });
+    }
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            cancelarProceso();
+            if (!cancelModal.classList.contains('hidden')) {
+                navegarConTransicion('principal.html');
+            } else {
+                cancelarProceso();
+            }
         }
     });
 }
 
-// ============================================ //
-// 9. FUNCIÓN DE REDIRECCIÓN CON TRANSICIÓN    //
-// ============================================ //
-
 function navegarConTransicion(destino) {
-    const body = document.body;
-    body.classList.add('fade-out');
+    const main = document.querySelector('main');
+    main.classList.remove('loaded');
+    main.classList.add('fade-out-back');
+    
+    // Desvanecer el modal junto con la pantalla si está visible
+    if (!cancelModal.classList.contains('hidden')) {
+        cancelModal.classList.remove('modal-active');
+        cancelModal.classList.add('modal-exit');
+    }
     
     setTimeout(() => {
         window.location.href = destino;
     }, 400);
 }
-
-console.log('✅ Generando Pronóstico - Script cargado correctamente');

@@ -14,6 +14,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Pantalla Principal - Iniciada correctamente');
     initCardInteractions();
+    initEntranceTransition();
 });
 
 // ============================================ //
@@ -21,10 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================ //
 
 function navegarConTransicion(destino, tiempo = 400) {
-    const body = document.body;
+    const main = document.querySelector('main');
     
     // Agregar clase de fade-out
-    body.classList.add('fade-out');
+    main.classList.remove('loaded');
+    main.classList.add('fade-out-back');
     
     // Esperar a que termine la animación y redirigir
     setTimeout(() => {
@@ -80,6 +82,12 @@ function initCardInteractions() {
                 }
             }
         });
+    });
+}
+
+function initEntranceTransition() {
+    requestAnimationFrame(() => {
+        document.querySelector('main').classList.add('loaded');
     });
 }
 

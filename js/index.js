@@ -55,7 +55,7 @@ function iniciarBienvenida() {
             
         }, 500); // 500ms = duración de la animación fade-out
         
-    }, 2000); // 2000ms = 2 segundos
+    }, 3000); // 3000ms = 3 segundos
 }
 
 // ============================================ //
