@@ -50,8 +50,19 @@ body {
 /* 5. ALERT GRADIENT                            */
 /* ============================================ */
 
-.alert-gradient {
-    background: linear-gradient(90deg, #FEE2E2 0%, #f9f9f9 100%);
+.alert-custom {
+    /* Color de fondo del banner completo.
+       Ajusta estas variables para cambiar el fondo sin tocar el HTML. */
+    --alert-bg-start: #FEE2E2; /* color de inicio del degradado */
+    --alert-bg-end: #f9f9f9;   /* color final del degradado */
+    background: linear-gradient(90deg, var(--alert-bg-start) 0%, var(--alert-bg-end) 100%);
+}
+
+.alert-icon-container {
+    /* Color de fondo del contenedor circular del ícono.
+       Independiente del fondo del banner. */
+    --alert-icon-bg: #fbf0f0; /* equivalente al antiguo bg-red-100 */
+    background-color: var(--alert-icon-bg);
 }
 
 /* ============================================ */
@@ -177,5 +188,225 @@ body.fade-out {
         border-radius: 32px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         min-height: 100vh;
+    }
+}
+
+/* ============================================ */
+/* ====== 10. ESTILOS PARA ESTACIONES DEL RÍO (AGREGADO) ====== */
+/* ============================================ */
+
+/* ============================================ */
+/* 10.1 ICONOS DE ESTACIONES (RIVER)            */
+/* ============================================ */
+
+.icon-river {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.icon-river-red {
+    background: radial-gradient(circle, rgba(254,226,226,1) 0%, rgba(255,255,255,0) 70%);
+}
+
+.icon-river-green {
+    background: radial-gradient(circle, rgba(220,252,231,1) 0%, rgba(255,255,255,0) 70%);
+}
+
+/* ============================================ */
+/* 10.2 SOMBRAS Y BORDES DE TARJETAS           */
+/* ============================================ */
+
+.shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* ============================================ */
+/* 10.3 COLORES DE LA APP (RIVER STATIONS)     */
+/* ============================================ */
+
+.bg-app-bg {
+    background-color: #F8FAFC;
+}
+
+.text-app-text {
+    color: #111827;
+}
+
+.text-app-muted {
+    color: #6B7280;
+}
+
+.bg-app-red {
+    background-color: #EF4444;
+}
+
+.text-app-red {
+    color: #EF4444;
+}
+
+.bg-app-green {
+    background-color: #10B981;
+}
+
+.text-app-green {
+    color: #10B981;
+}
+
+.bg-app-blue {
+    background-color: #2563EB;
+}
+
+.text-app-blue {
+    color: #2563EB;
+}
+
+.bg-app-blueLight {
+    background-color: #DBEAFE;
+}
+
+.bg-app-blueBg {
+    background-color: #F1F5F9;
+}
+
+.border-app-cardBorder {
+    border-color: #E5E7EB;
+}
+
+/* ============================================ */
+/* 10.4 RESPONSIVE PARA ESTACIONES DEL RÍO     */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    /* Ajustes para tarjetas de estaciones en móvil */
+    .icon-river {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .icon-river svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Ajuste de textos en tarjetas */
+    .text-3xl {
+        font-size: 1.75rem;
+    }
+    
+    /* Ajuste de padding en tarjetas */
+    .p-5 {
+        padding: 16px;
+    }
+    
+    .gap-4 {
+        gap: 12px;
+    }
+    
+    .w-\[100px\] {
+        width: 70px;
+    }
+}
+
+/* ============================================ */
+/* ====== 11. ESTILOS PARA EMBALSE URRÁ I (AGREGADO) ====== */
+/* ============================================ */
+
+/* ============================================ */
+/* 11.1 FONDO HERO DEL EMBALSE                  */
+/* ============================================ */
+
+.bg-hero {
+    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCytlL4VDth6QKhVrnq8f_UQwDGighf6ERBq8ec-hgkzFoyjaFyQzdt9Nk1JlXFE5_OAu9AebGI9R6vAm3H4tX0KMGvR3A1HxIpDdIsCCngklLyiN8hhS0gfkH8u6hppNyq9HhU2E0ai_4wGpJtzdYBoymJqhmqWUG-yZMmWfG35SYuHK4Hd0_DpzS7B6qlaaFDI8UJkqrViv62zJEt1igJNPnnYt53CZJ1Mr2sv8eAT4LLJEbQkjh28XOH_XRbno9QgA');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+/* ============================================ */
+/* 11.2 COLORES PERSONALIZADOS DEL EMBALSE     */
+/* ============================================ */
+
+.text-ur-blue-900 {
+    color: #0A1A3F;
+}
+
+.text-ur-blue-600 {
+    color: #0F57EB;
+}
+
+.bg-ur-blue-50 {
+    background-color: #F0F5FF;
+}
+
+.bg-ur-blue-100 {
+    background-color: #E0EBFF;
+}
+
+.text-ur-gray-500 {
+    color: #6B7280;
+}
+
+.text-ur-green-500 {
+    color: #10B981;
+}
+
+.bg-ur-green-50 {
+    background-color: #ECFDF5;
+}
+
+.text-ur-yellow-500 {
+    color: #F59E0B;
+}
+
+.bg-ur-yellow-50 {
+    background-color: #FFFBEB;
+}
+
+.bg-ur-slate-50 {
+    background-color: #F8FAFC;
+}
+
+.text-ur-slate-800 {
+    color: #1E293B;
+}
+
+/* ============================================ */
+/* 11.3 SOMBRA PERSONALIZADA                    */
+/* ============================================ */
+
+.shadow-custom {
+    box-shadow: 0 4px 20px -2px rgba(15, 87, 235, 0.15);
+}
+
+/* ============================================ */
+/* 11.4 RESPONSIVE PARA EMBALSE URRÁ I         */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    .bg-hero {
+        min-height: 140px;
+    }
+    
+    .bg-hero .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    .w-16.h-16 {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .w-16.h-16 svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem;
     }
 }

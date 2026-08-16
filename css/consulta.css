@@ -8,14 +8,29 @@
 /* 1. ESTILOS GENERALES                         */
 /* ============================================ */
 
+html {
+    background-color: #f8fbff;
+}
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f8fbff;
     min-height: 100vh;
     overflow-y: auto;
-    zoom: 0.85; /* Reducción de escala general - igual que principal.css */
+    zoom: 0.99; /* Reducción de escala general - igual que principal.css */
+}
+main {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+main.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+main.fade-out-back {
+    opacity: 0;
+    transform: scale(0.98);
 }
 
 /* ============================================ */
@@ -37,6 +52,21 @@ body {
 
 .btn-shadow {
     box-shadow: 0 4px 12px rgba(0, 88, 190, 0.3);
+}
+
+/* Botones de consulta - efecto hover de agrandado */
+.btn-consulta {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.btn-consulta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 88, 190, 0.4);
+}
+
+.btn-consulta:active {
+    transform: scale(0.98);
 }
 
 /* ============================================ */
@@ -130,19 +160,3 @@ main {
 /* ============================================ */
 /* 7. TRANSICIÓN DE ENTRADA Y SALIDA            */
 /* ============================================ */
-
-body {
-    opacity: 0;
-    transform: scale(0.98);
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.loaded {
-    opacity: 1;
-    transform: scale(1);
-}
-
-body.fade-out-back {
-    opacity: 0;
-    transform: scale(0.98);
-}

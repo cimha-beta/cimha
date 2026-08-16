@@ -8,6 +8,9 @@
 /* 1. ESTILOS GENERALES                         */
 /* ============================================ */
 
+html {
+    background-color: #f7f9fb;
+}
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f9fb;
@@ -16,7 +19,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     padding-bottom: 24px;
-    zoom: 0.85;
+    zoom: 0.95;
+}
+main {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+main.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+main.fade-out-back {
+    opacity: 0;
+    transform: scale(0.98);
 }
 
 /* ============================================ */
@@ -29,30 +45,8 @@ body {
 }
 
 /* ============================================ */
-/* 3. TRANSICIÓN DE ENTRADA                     */
+/* 3. TRANSICIÓN DE ENTRADA Y SALIDA           */
 /* ============================================ */
-
-body {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.loaded {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* ============================================ */
-/* 4. TRANSICIÓN DE SALIDA                      */
-/* ============================================ */
-
-body.fade-out {
-    opacity: 0;
-    transform: scale(0.95);
-    pointer-events: none;
-}
 
 /* ============================================ */
 /* 5. HEADER - FONDO CON DESENFOQUE             */

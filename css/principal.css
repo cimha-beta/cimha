@@ -7,10 +7,26 @@
 /* ============================================ */
 /* 1. ESTILOS GENERALES                         */
 /* ============================================ */
+html {
+    background-color: #F7F9FB;
+}
 body {
     background-color: #F7F9FB;
     -webkit-font-smoothing: antialiased;
-    zoom: 0.85; /* Reducción de escala general */
+     zoom: 1.0; /* Reducción de escala general */
+}
+main {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+main.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+main.fade-out-back {
+    opacity: 0;
+    transform: scale(0.98);
 }
 /* ============================================ */
 /* 2. ICONOS DE MATERIAL                        */
