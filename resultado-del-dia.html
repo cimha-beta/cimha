@@ -30,6 +30,10 @@
 
         <div class="relative z-10 space-y-6">
 
+            <!-- ========================================== -->
+            <!-- ====== SECCIÓN 1: CÓDIGO ORIGINAL ====== -->
+            <!-- ========================================== -->
+
             <!-- HEADER SECTION -->
             <header class="flex flex-col space-y-2">
                 <div class="flex items-center space-x-3">
@@ -89,10 +93,13 @@
 
                 <div class="relative z-10 flex flex-col justify-end text-white pb-6 border-b border-white/20">
                     <div class="flex items-start">
-                        <span id="temp-actual" class="text-7xl font-bold tracking-tighter">31</span>
-                        <span class="text-4xl font-semibold mt-2">°</span>
+                        <span id="temp-actual"
+                            style="font-size: 68px; font-weight: 700; letter-spacing: -0.05em; line-height: 1;">31</span>
+                        <span style="font-size: 32px; font-weight: 600; margin-top: 8px; line-height: 1;">°</span>
                     </div>
-                    <p id="estado-cielo" class="text-lg font-medium mt-1">Parcialmente Soleado</p>
+                    <p id="estado-cielo"
+                        style="font-size: 16px; font-weight: 500; margin-top: 12px; margin-left: 4px; line-height: 1.5;">
+                        Parcialmente Soleado</p>
                 </div>
 
                 <div class="bg-white rounded-2xl p-4 flex justify-between items-center shadow-sm relative z-20">
@@ -155,11 +162,11 @@
 
             <!-- ALERT BANNER -->
             <section
-                class="alert-gradient rounded-2xl p-4 flex items-center justify-between border border-red-100 mt-4 shadow-sm cursor-pointer hover:brightness-95 transition-all" 
+                class="alert-custom rounded-2xl p-4 flex items-center justify-between border border-red-100 mt-4 shadow-sm cursor-pointer hover:brightness-95 transition-all"
                 id="alert-banner">
                 <div class="flex items-center space-x-4">
                     <div
-                        class="w-[64px] h-[64px] bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        class="w-[64px] h-[64px] alert-icon-container rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                         <img src="assets/icon-temperatura-alta.png" alt="Temperaturas Altas"
                             style="width: 38px; height: 38px; object-fit: contain;" />
                     </div>
@@ -175,19 +182,393 @@
             </section>
 
             <!-- INTERPRETATION CARD -->
-            <section class="bg-white rounded-2xl p-6 shadow-md mt-4 flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                    <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                        <span class="material-symbols-outlined text-blue-600 text-2xl">chat_bubble</span>
+            <section class="bg-white rounded-2xl p-6 shadow-md mt-4">
+
+                <div class="flex items-center" style="gap: 16px;">
+
+                    <!-- CONTENEDOR DE LA IMAGEN -->
+                    <div class="flex-shrink-0" style="width: 45px; height: 45px;">
+                        <div
+                            class="w-full h-full bg-blue-50 rounded-full flex items-center justify-center overflow-hidden">
+
+                            <img src="assets/icon-comentario.png" alt="Interpretación"
+                                style="width: 30px; height: 30px; object-fit: contain;" />
+
+                        </div>
+                    </div>
+
+                    <h3 class="text-blue-900 font-bold text-xl" style="margin: 0;">
+                        Interpretación
+                    </h3>
+
+                </div>
+
+                <!-- TEXTO -->
+                <p id="interpretacion" class="text-slate-700 text-sm leading-relaxed"
+                    style="margin: 12px 0 0; padding: 0; text-align: left;">
+
+                    El nivel del embalse es normal-bajo y la cantidad de agua que entra es menor que la que sale.
+                    Esto hace que el embalse tienda a vaciarse. La cantidad de agua que se libera es alta, lo que
+                    impacta de forma significativa el río Sinú a lo largo de la cuenca.
+
+                </p>
+
+            </section>
+
+
+            <!-- ========================================== -->
+            <!-- ====== SECCIÓN 2: CÓDIGO NUEVO (RIVER STATIONS) ====== -->
+            <!-- ========================================== -->
+
+            <!-- Estaciones del Río Sinú -->
+            <section class="w-full bg-white rounded-2xl p-0 shadow-sm overflow-hidden mt-2">
+
+                <!-- Título -->
+                <div class="px-5 pt-5 pb-2">
+                    <h2 class="text-xl font-bold text-[#111827] tracking-tight">Estaciones del Río Sinú</h2>
+                    <p class="text-[#6B7280] text-sm font-medium">Monitoreo en tiempo real</p>
+                </div>
+
+                <!-- Lista de estaciones -->
+                <div class="px-4 pb-12 space-y-3">
+
+                    <!-- ============================================ -->
+                    <!-- Station: Valencia -->
+                    <!-- ============================================ -->
+                    <article
+                        class="bg-white rounded-2xl p-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] relative overflow-hidden flex items-stretch border border-[#E5E7EB]">
+
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#EF4444] rounded-l-2xl"></div>
+
+                        <div class="flex flex-1 items-center gap-3">
+
+                            <!-- VIDEO ESTACIÓN (sin contenedor) -->
+                            <video src="assets/video-icono-ubicacion.mp4"
+                                style="width: 90px; height: 90px; object-fit: cover; border-radius: 50%; flex-shrink: 0;"
+                                muted playsinline preload="metadata"
+                                onended="this.currentTime = this.duration - 0.5; this.pause();">
+                            </video>
+
+                            <div class="flex-1 pr-3 border-r border-gray-100">
+
+                                <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #0F172A;">Valencia</h3>
+
+                                <p
+                                    style="margin-top: 2px; margin-bottom: 2px; font-size: 10px; font-weight: 500; color: #9CA3AF; text-transform: uppercase;">
+                                    IDEAM
+                                </p>
+
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        style="font-size: 24px; font-weight: 700; letter-spacing: -0.05em; color: #EF4444;">2.72</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #eb0909;">m</span>
+                                </div>
+
+                                <div class="flex items-center gap-1 mt-0.5" style="color: #EF4444;">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/trending-down.svg"
+                                        alt="Descenso" style="width: 12px; height: 12px; object-fit: contain;" />
+                                    <span style="font-size: 12px; font-weight: 500; color: #f10808;">en descenso</span>
+                                </div>
+
+                            </div>
+
+                            <div class="shrink-0 pl-3 flex flex-col justify-center items-center text-center"
+                                style="width: 80px;">
+
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/droplets.svg"
+                                    alt="Precipitación"
+                                    style="width: 16px; height: 20px; object-fit: contain; margin-bottom: 4px;" />
+
+                                <p style="margin: 0; font-size: 10px; color: #6B7280; line-height: 1.3;">
+                                    Sin información<br />suficiente
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ============================================ -->
+                    <!-- Station: Montería -->
+                    <!-- ============================================ -->
+                    <article
+                        class="bg-white rounded-2xl p-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] relative overflow-hidden flex items-stretch border border-[#E5E7EB]">
+
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#10B981] rounded-l-2xl"></div>
+
+                        <div class="flex flex-1 items-center gap-3">
+
+                            <!-- VIDEO ESTACIÓN (sin contenedor) -->
+                            <video src="assets/video-icono-ubicacion.mp4"
+                                style="width: 90px; height: 90px; object-fit: cover; border-radius: 50%; flex-shrink: 0;"
+                                muted playsinline preload="metadata"
+                                onended="this.currentTime = this.duration - 0.1; this.pause();">
+                            </video>
+
+                            <div class="flex-1 pr-3 border-r border-gray-100">
+
+                                <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #0F172A;">Montería</h3>
+
+                                <p
+                                    style="margin-top: 2px; margin-bottom: 2px; font-size: 10px; font-weight: 500; color: #9CA3AF; text-transform: uppercase;">
+                                    IDEAM
+                                </p>
+
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        style="font-size: 24px; font-weight: 700; letter-spacing: -0.05em; color: #10B981;">2.6</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #10B981;">m</span>
+                                </div>
+
+                                <div class="flex items-center gap-1 mt-0.5" style="color: #10B981;">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/trending-up.svg"
+                                        alt="Ascenso" style="width: 12px; height: 12px; object-fit: contain;" />
+                                    <span style="font-size: 12px; font-weight: 500; color: #10B981;">en ascenso</span>
+                                </div>
+
+                            </div>
+
+                            <div class="shrink-0 pl-3 flex flex-col justify-center items-center" style="width: 80px;">
+
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/droplets.svg"
+                                    alt="Precipitación"
+                                    style="width: 16px; height: 20px; object-fit: contain; margin-bottom: 4px;" />
+
+                                <div class="flex items-baseline gap-0.5">
+                                    <span style="font-size: 14px; font-weight: 600; color: #1F2937;">14.78</span>
+                                    <span style="font-size: 9px; font-weight: 500; color: #4B5563;">mm</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ============================================ -->
+                    <!-- Station: Lorica -->
+                    <!-- ============================================ -->
+                    <article
+                        class="bg-white rounded-2xl p-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] relative overflow-hidden flex items-stretch border border-[#E5E7EB]">
+
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#EF4444] rounded-l-2xl"></div>
+
+                        <div class="flex flex-1 items-center gap-3">
+
+                            <!-- VIDEO ESTACIÓN (sin contenedor) -->
+                            <video src="assets/video-icono-ubicacion.mp4"
+                                style="width: 90px; height: 90px; object-fit: cover; border-radius: 50%; flex-shrink: 0;"
+                                muted playsinline preload="metadata"
+                                onended="this.currentTime = this.duration - 0.1; this.pause();">
+                            </video>
+
+                            <div class="flex-1 pr-3 border-r border-gray-100">
+
+                                <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #0F172A;">Lorica</h3>
+
+                                <p
+                                    style="margin-top: 2px; margin-bottom: 2px; font-size: 10px; font-weight: 500; color: #9CA3AF; text-transform: uppercase;">
+                                    IDEAM
+                                </p>
+
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        style="font-size: 24px; font-weight: 700; letter-spacing: -0.05em; color: #EF4444;">3.84</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #EF4444;">m</span>
+                                </div>
+
+                                <div class="flex items-center gap-1 mt-0.5" style="color: #EF4444;">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/trending-down.svg"
+                                        alt="Descenso" style="width: 12px; height: 12px; object-fit: contain;" />
+                                    <span style="font-size: 12px; font-weight: 500; color: #EF4444;">en descenso</span>
+                                </div>
+
+                            </div>
+
+                            <div class="shrink-0 pl-3 flex flex-col justify-center items-center" style="width: 80px;">
+
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/droplets.svg"
+                                    alt="Precipitación"
+                                    style="width: 16px; height: 20px; object-fit: contain; margin-bottom: 4px;" />
+
+                                <div class="flex items-baseline gap-0.5">
+                                    <span style="font-size: 14px; font-weight: 600; color: #1F2937;">12.54</span>
+                                    <span style="font-size: 9px; font-weight: 500; color: #4B5563;">mm</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- Header Urrá (sin banner) -->
+                <div class="mb-5">
+                    <h2 class="text-2xl font-bold text-[#0A1A3F] tracking-tight">Embalse Urrá I</h2>
+                    <div class="flex items-center gap-1.5 mt-1">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        <span id="hora-reporte-urra" class="text-slate-500 text-sm">Reporte de las 09:00 a. m.</span>
                     </div>
                 </div>
-                <div class="flex-1">
-                    <h3 class="text-blue-900 font-bold text-xl mb-2">Interpretación</h3>
-                    <p id="interpretacion" class="text-slate-700 text-sm leading-relaxed">
-                        El nivel del embalse es normal-bajo y la cantidad de agua que entra es menor que la que sale.
-                        Esto hace que el embalse tienda a vaciarse. La cantidad de agua que se libera es alta, lo que
-                        impacta de forma significativa el río Sinú a lo largo de la cuenca.
-                    </p>
+
+                <!-- Contenido de datos -->
+                <div class="px-5 pb-5 mt-4">
+
+                    <!-- Main Level Card -->
+                    <div
+                        class="bg-white/80 backdrop-blur-xl rounded-3xl p-5 flex items-center justify-between shadow-[0_4px_20px_-2px_rgba(15,87,235,0.15)] mb-5 border border-white/50">
+                        <div class="flex items-center gap-4">
+                            <!-- Contenedor del ícono: ajusta width/height en px -->
+                            <div style="width: 64px; height: 64px;"
+                                class="rounded-full bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-center border border-gray-100 flex-shrink-0">
+                                <img src="assets/icono-nivel-de-agua.png" alt="Nivel del embalse"
+                                    style="width: 35px; height: 35px; object-fit: contain;" />
+                            </div>
+                            <div>
+                                <h3 class="text-[#0A1A3F] font-medium text-sm mb-0.5">Nivel del embalse</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-3xl font-bold text-[#0F57EB] tracking-tight">121.99</span>
+                                    <span class="text-gray-500 text-sm font-medium">msnm</span>
+                                </div>
+                                <div
+                                    class="inline-flex items-center gap-1.5 bg-[#F0F5FF] text-[#0F57EB] px-2 py-0.5 rounded-full text-xs font-medium mt-1">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-[#0F57EB]"></div>
+                                    Normal - Bajo
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-10 h-10 rounded-2xl bg-[#F8FAFC] flex items-center justify-center hover:bg-gray-100 transition flex-shrink-0">
+                            <svg fill="none" height="20" viewBox="0 0 24 24" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 7L13 15L9 11L3 17" stroke="#0F57EB" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"></path>
+                                <path d="M16 7H21V12" stroke="#0F57EB" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Detailed Stats -->
+                    <div class="flex flex-col gap-5 mb-6 px-1">
+
+                        <!-- Entrante -->
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-5">
+                            <div class="flex items-center gap-4">
+                                <div style="width: 48px; height: 48px;"
+                                    class="rounded-full bg-[#F0F5FF] flex items-center justify-center flex-shrink-0">
+                                    <img src="assets/icono-entrante.png" alt="Entrante"
+                                        style="width: 28px; height: 28px; object-fit: contain;" />
+                                </div>
+                                <div>
+                                    <h4 class="text-[#0A1A3F] font-semibold text-sm mb-0.5"> Caudal Entrante</h4>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-xl font-bold text-[#0F57EB]">160.67</span>
+                                        <span class="text-gray-500 text-sm">m³/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-xl bg-[#F0F5FF] flex items-center justify-center hover:bg-[#E0EBFF] transition flex-shrink-0">
+                                <svg fill="none" height="16" viewBox="0 0 24 24" width="16"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0F57EB" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Turbinas -->
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-5">
+                            <div class="flex items-center gap-4">
+                                <div style="width: 48px; height: 48px;"
+                                    class="rounded-full bg-[#FFFBEB] flex items-center justify-center flex-shrink-0">
+                                    <img src="assets/icono-turbina.png" alt="Turbinas"
+                                        style="width: 32px; height: 32px; object-fit: contain;" />
+                                </div>
+                                <div>
+                                    <h4 class="text-[#0A1A3F] font-semibold text-sm mb-0.5">Turbinas</h4>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-xl font-bold text-[#0A1A3F]">613.42</span>
+                                        <span class="text-gray-500 text-sm">m³/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-xl bg-[#ECFDF5] flex items-center justify-center hover:bg-green-100 transition flex-shrink-0">
+                                <svg fill="none" height="16" viewBox="0 0 24 24" width="16"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#10B981" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Rebosadero -->
+                        <div class="flex items-center justify-between pb-1">
+                            <div class="flex items-center gap-4">
+                                <div style="width: 48px; height: 48px;"
+                                    class="rounded-full bg-[#ECFDF5] flex items-center justify-center flex-shrink-0">
+                                    <img src="https://TU-RUTA-EXTERNA/icon-rebosadero.png" alt="Rebosadero"
+                                        style="width: 24px; height: 24px; object-fit: contain;" />
+                                </div>
+                                <div>
+                                    <h4 class="text-[#0A1A3F] font-semibold text-sm mb-0.5">Rebosadero</h4>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-xl font-bold text-[#0A1A3F]">0.00</span>
+                                        <span class="text-gray-500 text-sm">m³/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-xl bg-[#ECFDF5] flex items-center justify-center hover:bg-green-100 transition flex-shrink-0">
+                                <svg fill="none" height="16" viewBox="0 0 24 24" width="16"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#10B981" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Interpretation Card -->
+                    <div class="bg-[#F3F6FC] rounded-3xl p-5 mt-2">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm flex-shrink-0">
+                                <svg fill="none" height="20" viewBox="0 0 24 24" width="20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C3.9994 9.92179 4.43943 8.37488 5.26947 7.03258C6.09951 5.69028 7.28695 4.6056 8.7 3.9C9.87812 3.30493 11.1801 2.99656 12.5 3C14.7533 3 16.9142 3.89553 18.5074 5.48873C20.1005 7.08193 20.996 9.24275 21 11.5Z"
+                                        stroke="#0F57EB" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"></path>
+                                    <path d="M8 9H16" stroke="#0F57EB" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"></path>
+                                    <path d="M8 13H14" stroke="#0F57EB" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[#0A1A3F] font-bold text-sm mb-1">Interpretación</h4>
+                                <p class="text-[#0A1A3F]/80 text-xs leading-relaxed">
+                                    El nivel del embalse es normal-bajo y la cantidad de agua que entra es menor que la
+                                    que sale. Esto hace que el embalse tienda a vaciarse. La cantidad de agua que se
+                                    libera es alta, lo que impacta de forma significativa el río Sinú a lo largo de la
+                                    cuenca.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 

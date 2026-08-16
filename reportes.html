@@ -201,6 +201,24 @@
         </div>
     </div>
 
+    <!-- ============================================ -->
+    <!-- MODAL DE ENVÍO EXITOSO                      -->
+    <!-- ============================================ -->
+    <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-[60] hidden" id="success-modal">
+        <div class="modal-content bg-white rounded-2xl p-8 mx-4 max-w-sm w-full flex flex-col items-center text-center shadow-2xl">
+            <div class="w-24 h-24 rounded-full flex items-center justify-center mb-6" style="background-color: rgba(0, 102, 204, 0.1);">
+                <video class="w-24 h-24 object-contain" id="success-video" autoplay muted playsinline src="assets/video_icono_exito.mp4"></video>
+            </div>
+            <h2 class="text-[28px] font-bold mb-3" style="color: #131b2e;">¡Envío Exitoso!</h2>
+            <p class="text-[16px] mb-10 leading-relaxed" style="color: #45464d;">
+                Tu reporte ha sido enviado correctamente. Nuestro equipo lo revisará pronto y tomará las acciones necesarias.
+            </p>
+            <button class="w-full text-white py-4 px-6 rounded-lg font-semibold text-center transition-all duration-200 active:scale-95 hover:opacity-90" id="btn-volver-inicio" style="background-color: #0066cc;">
+                Volver al Inicio
+            </button>
+        </div>
+    </div>
+
     <!-- ✅ JavaScript -->
     <script src="js/reportes.js"></script>
 </body>
